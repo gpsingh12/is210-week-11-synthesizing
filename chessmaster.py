@@ -13,9 +13,7 @@ class ChessPiece(object):
         moves(list): stores tuple of information about each move
     
     """
-    prefix = ' '
-    position = ChessPiece()
-    moves = ChessPiece()
+    prefix = ''
 
     def __init(self, position):
         """ Constructor for ChessPiece.
@@ -32,7 +30,7 @@ class ChessPiece(object):
             self.moves = []
         else:
             excep = '`{}`is not a legal start position'
-                ValueError(excep.format(position))
+            ValueError(excep.format(position))
             
 
     def algebraic_to_numeric(self, tile):
@@ -46,39 +44,12 @@ class ChessPiece(object):
             >>>
         """
         self.tile = tile
-        tile = [x, y]
-        counter = 0
-        while counter == 0:
-        xcoord = x
-        ycoord = y
-        xcoord = xcoord.lower()
-        if ycoord > 8:
-            print None
-            counter = 1
-        if xcoord == 'a':
-            xcoord = 1
-        elif xcoord == 'b':
-            xcoord = 2
-        elif xcoord == 'c':
-            xcoord = 3
-        elif xcoord == 'd':
-            xcoord = 4
-        elif xcoord == 'e':
-            xcoord=5
-        elif xcoord == 'f':
-            xcoord = 6
-        elif xcoord == 'g':
-            xcoord = 7
-        elif xcoord == 'h':
-            xcoord = 8
-        else:
-            print None
-     if (tile[0] == x) and (tile[1] == y):
-         return (tile, int(tile[1]))
-         
 
-
-    def is_legal_move(self, position):
+        xaxis ='abcdefg'.find(tile[0])
+        if not xaxis >= 0 and 1 <= int(tile[1])<= 8
+            return None
+  
+        def is_legal_move(self, position):
         """Function to check if the moves are legal.
         Args:
             position(mix): iput value for the moves.
@@ -87,10 +58,11 @@ class ChessPiece(object):
         Examples:
             >>>
         """
-        if newposition(position):
+        if self.algebraic_to_numeric() not None:
             return True
         else:
             return False
+
     def move(self, position):
         """Function provide way for legal move.
         Args:
@@ -100,8 +72,9 @@ class ChessPiece(object):
         Examples:
             >>>
         """
-        newposition = self.is_legal_move(position)
+        self.is_legal_move(position)
         if newposition:
+            timestamp = time.time()
             olpdposition = self.prefix + position
             newposition = self.prefix + position
             moves.append(oldposition, newposition, timestamp)
@@ -117,10 +90,7 @@ class Rook(ChessPiece):
         prefix(str): empty string.
     """
     prefix = 'R'
-
-    def __init__(self, position):
-        self.position = position
-
+    
 
 class Bishop(ChessPiece):
     """ ChessPiece class is the parent class for Bishop.
@@ -129,9 +99,7 @@ class Bishop(ChessPiece):
         prefix(str): empty string.
     """
     prefix = 'B'
-
-    def __init__(self, position):
-        self.position = position
+    
 
 class King(ChessPiece):
     """ ChessPiece is parent class for King.
@@ -140,9 +108,7 @@ class King(ChessPiece):
         prefix(str): empty string.
     """
     prefix = 'K'
-
-    def __init__(self, position):
-        self.position = position
+ 
 
 
 class ChessMatch(ChessPiece):
