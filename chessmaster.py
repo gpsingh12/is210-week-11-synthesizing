@@ -46,7 +46,7 @@ class ChessPiece(object):
         self.tile = tile
 
         xaxis ='abcdefg'.find(tile[0])
-        if not xaxis >= 0 and 1 <= int(tile[1])<= 8
+        if not xaxis >= 0 and 1 <= int(tile[1])<= 8:
             return None
   
         def is_legal_move(self, position):
